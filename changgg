@@ -1,0 +1,33 @@
+function setup() { //設定初始內容 只會執行一次
+  createCanvas(windowWidth, windowHeight); //產生一個畫布
+  background("#ffafcc")
+}
+
+function draw() { //畫圖 每秒會畫60次
+ // background(220); //背景顏色 灰白色(0嘿色 255白色)
+   background("#ffafcc") //設定背景顏色
+   //rectMode(CENTER) //設定方形的座標點放在方形的中間
+   noFill() //以下畫的物件不要充滿顏色
+   stroke("#ffc8dd") //線條顏色
+   strokeWeight(3) // 線條粗細
+   //宣告變數
+  var rect_width = 50  +mouseX/100  //方形的寬度
+  var bc_width = 50 +mouseY/10  //大園的寬度
+  var sc_width = 25 +mouseX/100  //小圓的寬度
+ for(let j=0;j<20;j=j+1){ //產生第幾排 共20排
+ for(let i=0;i<40;i=i+1){ //產生一整個物件(兩個圓加上一個方形) 每排有40個物件
+  if(j<5){ //第0-4排共舞排設定的顏色
+    stroke("#e4c1f9")
+
+
+  }else if(j<10){
+    stroke("#fb6f92")
+  }else {
+    stroke("#fdfcdc")
+  }
+  ellipse(25+50*i,25+50*j,bc_width) //在座標(25 25)畫一個直徑為50的圓
+  rect(25+50*i,25+50*j,rect_width ) //正方形框框
+ ellipse(50+50*i,50+50*j,sc_width) //旁邊小圓
+ }
+ }
+}
